@@ -15,6 +15,17 @@ export async function listChaptersForSubject(subjectId: string) {
   return data;
 }
 
+export async function getChapter(chapterId: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("chapters")
+    .select("*")
+    .eq("id", chapterId)
+    .single();
+  if (error) throw error;
+  return data;
+}
+
 export async function createChapter(input: Omit<ChapterInsert, "user_id">) {
   const supabase = await createClient();
   const {
@@ -24,7 +35,7 @@ export async function createChapter(input: Omit<ChapterInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("chapters")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;
@@ -35,7 +46,7 @@ export async function updateChapter(chapterId: string, input: ChapterUpdate) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("chapters")
-    .update(input)
+    .update(input as any)
     .eq("id", chapterId)
     .select()
     .single();

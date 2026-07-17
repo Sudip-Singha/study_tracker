@@ -36,7 +36,7 @@ export async function createTask(input: Omit<TaskInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("tasks")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;
@@ -47,7 +47,7 @@ export async function updateTask(taskId: string, input: TaskUpdate) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("tasks")
-    .update(input)
+    .update(input as any)
     .eq("id", taskId)
     .select()
     .single();

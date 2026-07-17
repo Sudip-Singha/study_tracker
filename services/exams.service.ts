@@ -30,7 +30,7 @@ export async function createExam(input: Omit<ExamInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("exams")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;
@@ -41,7 +41,7 @@ export async function updateExam(examId: string, input: ExamUpdate) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("exams")
-    .update(input)
+    .update(input as any)
     .eq("id", examId)
     .select()
     .single();

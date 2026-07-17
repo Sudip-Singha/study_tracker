@@ -24,7 +24,7 @@ export async function createTopic(input: Omit<TopicInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("topics")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;
@@ -35,7 +35,7 @@ export async function updateTopic(topicId: string, input: TopicUpdate) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("topics")
-    .update(input)
+    .update(input as any)
     .eq("id", topicId)
     .select()
     .single();

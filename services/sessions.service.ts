@@ -12,7 +12,7 @@ export async function logStudySession(input: Omit<SessionInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("study_sessions")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;

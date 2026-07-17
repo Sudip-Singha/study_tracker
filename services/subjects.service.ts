@@ -15,6 +15,17 @@ export async function listSubjectsForExam(examId: string) {
   return data;
 }
 
+export async function getSubject(subjectId: string) {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("subjects")
+    .select("*")
+    .eq("id", subjectId)
+    .single();
+  if (error) throw error;
+  return data;
+}
+
 export async function createSubject(input: Omit<SubjectInsert, "user_id">) {
   const supabase = await createClient();
   const {
@@ -24,7 +35,7 @@ export async function createSubject(input: Omit<SubjectInsert, "user_id">) {
 
   const { data, error } = await supabase
     .from("subjects")
-    .insert({ ...input, user_id: user.id })
+    .insert({ ...input, user_id: user.id } as any)
     .select()
     .single();
   if (error) throw error;
@@ -35,7 +46,7 @@ export async function updateSubject(subjectId: string, input: SubjectUpdate) {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("subjects")
-    .update(input)
+    .update(input as any)
     .eq("id", subjectId)
     .select()
     .single();
