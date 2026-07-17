@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Design tokens — "quiet focus" palette.
+  Cool ink-navy primary (not the default zinc, not warm-cream-serif,
+  not near-black-neon) + a single warm amber accent reserved for
+  progress/streak highlights, so momentum has one consistent color
+  across the whole app.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 39% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 39% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 39% 12%;
+
+    --primary: 224 39% 20%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 224 39% 20%;
+
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 16% 40%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 30 60% 12%;
+
+    --success: 168 60% 32%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 224 39% 20%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 224 32% 9%;
+    --foreground: 210 20% 92%;
+
+    --card: 224 28% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 224 28% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 212 80% 65%;
+    --primary-foreground: 224 39% 10%;
+
+    --secondary: 224 20% 18%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 224 20% 16%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 30 60% 10%;
+
+    --success: 168 55% 45%;
+    --success-foreground: 224 30% 8%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 224 20% 20%;
+    --input: 224 20% 20%;
+    --ring: 212 80% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Visible keyboard focus everywhere — never suppressed */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Big dashboard stat numbers share one treatment: display face, tight tracking */
+  .stat-number {
+    @apply font-display text-3xl font-semibold tracking-tight text-foreground;
+  }
+}
