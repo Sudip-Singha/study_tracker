@@ -11,7 +11,7 @@ export default function VerifyEmailPage() {
       <div className="space-y-1">
         <h1 className="font-display text-xl font-semibold">Check your inbox</h1>
         <p className="text-sm text-muted-foreground">
-          We've sent a confirmation link to your email. Click it to activate your account, then log in.
+          We&apos;ve sent a confirmation link to your email. Click it to activate your account, then log in.
         </p>
       </div>
       <Button asChild className="w-full">

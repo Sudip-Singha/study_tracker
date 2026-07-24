@@ -9,7 +9,7 @@ export default async function ExamsPage() {
       <div>
         <h1 className="font-display text-2xl font-semibold tracking-tight">Exams</h1>
         <p className="text-sm text-muted-foreground">
-          Every exam you're preparing for, with subjects and chapters nested inside.
+          Every exam you&apos;re preparing for, with subjects and chapters nested inside.
         </p>
       </div>
       <ExamList exams={exams} />

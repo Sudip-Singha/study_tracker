@@ -68,7 +68,7 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="font-display text-2xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">Here's where things stand across every exam.</p>
+        <p className="text-sm text-muted-foreground">Here&apos;s where things stand across every exam.</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -89,7 +89,7 @@ export default async function DashboardPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Today's tasks</CardTitle>
+            <CardTitle>Today&apos;s tasks</CardTitle>
           </CardHeader>
           <CardContent>
             {todayTasks.length === 0 ? (

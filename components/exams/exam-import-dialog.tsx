@@ -181,7 +181,7 @@ export function ExamImportDialog({ trigger }: { trigger: React.ReactNode }) {
               </p>
               {raw && (
                 <p className="text-xs text-green-500 flex items-center gap-1">
-                  <CheckCircle2 className="h-3.5 w-3.5" /> File loaded — switch to "Paste JSON" to review
+                  <CheckCircle2 className="h-3.5 w-3.5" /> File loaded — switch to &ldquo;Paste JSON&rdquo; to review
                 </p>
               )}
             </div>
