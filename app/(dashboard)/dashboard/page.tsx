@@ -5,9 +5,10 @@ import { createClient } from "@/lib/supabase/server";
 import { listExams } from "@/services/exams.service";
 import { listTasksDueToday } from "@/services/tasks.service";
 import { countPendingTopics } from "@/services/topics.service";
-import { getWeeklyStudySeconds, getStudyStreak } from "@/services/sessions.service";
+import { getWeeklyStudySeconds, getStudyStreak, getMonthlyStudySeconds } from "@/services/sessions.service";
 import { StatsCard } from "@/components/dashboard/stats-card";
 import { WeeklyChart } from "@/components/dashboard/weekly-chart";
+import { CalendarView } from "@/components/dashboard/calendar-view";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { EmptyState } from "@/components/shared/empty-state";
 import { PriorityBadge } from "@/components/shared/priority-badge";
@@ -20,12 +21,17 @@ export default async function DashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const [exams, todayTasks, pendingTopics, weeklySeconds, streak] = await Promise.all([
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth() + 1;
+
+  const [exams, todayTasks, pendingTopics, weeklySeconds, streak, monthlySeconds] = await Promise.all([
     listExams(),
     listTasksDueToday(),
     countPendingTopics(),
     getWeeklyStudySeconds(),
     user ? getStudyStreak(user.id) : Promise.resolve(0),
+    getMonthlyStudySeconds(currentYear, currentMonth),
   ]);
 
   const activeExams = exams.filter((e) => e.status !== "archived");
@@ -44,6 +50,19 @@ export default async function DashboardPage() {
     return { day: format(date, "EEE"), hours: (weeklySeconds.get(key) ?? 0) / 3600 };
   });
   const weeklyTotalHours = chartData.reduce((sum, d) => sum + d.hours, 0);
+
+  // Serialize Maps to plain objects for client component props
+  const studySecondsRecord = Object.fromEntries(monthlySeconds.entries());
+
+  // Exam markers for the calendar — only exams with a target_date
+  const examMarkers = exams
+    .filter((e) => e.target_date)
+    .map((e) => ({
+      id: e.id,
+      name: e.name,
+      date: e.target_date!.slice(0, 10),
+      priority: (e.priority ?? "medium") as "low" | "medium" | "high",
+    }));
 
   return (
     <div className="space-y-6">
@@ -93,6 +112,14 @@ export default async function DashboardPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Calendar View */}
+      <CalendarView
+        studySeconds={studySecondsRecord}
+        examMarkers={examMarkers}
+        initialYear={currentYear}
+        initialMonth={currentMonth}
+      />
 
       <Card>
         <CardHeader>

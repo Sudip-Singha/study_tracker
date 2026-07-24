@@ -1,0 +1,146 @@
+[
+  {
+    "name": "UPSC CSE (Prelims)",
+    "description": "Union Public Service Commission Civil Services Exam - Preliminary",
+    "priority": "high",
+    "exam_date": "2025-06-01",
+    "subjects": [
+      {
+        "name": "History",
+        "weightage": 20,
+        "chapters": [
+          {
+            "name": "Ancient India",
+            "topics": ["Indus Valley Civilization", "Vedic Period", "Maurya Empire", "Gupta Period"]
+          },
+          {
+            "name": "Medieval India",
+            "topics": ["Delhi Sultanate", "Mughal Empire", "Bhakti Movement", "Maratha Empire"]
+          },
+          {
+            "name": "Modern India",
+            "topics": ["British Rule", "Freedom Movement", "Social Reforms", "Partition"]
+          }
+        ]
+      },
+      {
+        "name": "Geography",
+        "weightage": 20,
+        "chapters": [
+          {
+            "name": "Physical Geography",
+            "topics": ["Geomorphology", "Climatology", "Oceanography", "Biogeography"]
+          },
+          {
+            "name": "Indian Geography",
+            "topics": ["Physiography", "Climate", "Drainage System", "Natural Vegetation", "Agriculture"]
+          }
+        ]
+      },
+      {
+        "name": "Polity & Governance",
+        "weightage": 20,
+        "chapters": [
+          {
+            "name": "Indian Constitution",
+            "topics": ["Preamble", "Fundamental Rights", "Directive Principles", "Fundamental Duties"]
+          },
+          {
+            "name": "Government Structure",
+            "topics": ["Parliament", "President & VP", "PM & Cabinet", "Judiciary", "Local Self Government"]
+          }
+        ]
+      },
+      {
+        "name": "Economy",
+        "weightage": 20,
+        "chapters": [
+          {
+            "name": "Indian Economy",
+            "topics": ["GDP & National Income", "Planning", "Agriculture Sector", "Industry & Services"]
+          },
+          {
+            "name": "Economic Reforms",
+            "topics": ["LPG Reforms 1991", "Banking Sector", "Fiscal Policy", "Monetary Policy"]
+          }
+        ]
+      },
+      {
+        "name": "Current Affairs & CSAT",
+        "weightage": 20,
+        "chapters": [
+          {
+            "name": "Current Affairs",
+            "topics": ["National Events", "International Events", "Awards & Honors", "Science & Tech News"]
+          },
+          {
+            "name": "CSAT (Paper 2)",
+            "topics": ["Reading Comprehension", "Logical Reasoning", "Quantitative Aptitude", "Decision Making"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "JEE Main",
+    "description": "Joint Entrance Examination (Main) for Engineering Admissions",
+    "priority": "high",
+    "exam_date": "2025-01-22",
+    "subjects": [
+      {
+        "name": "Physics",
+        "weightage": 33,
+        "chapters": [
+          {
+            "name": "Mechanics",
+            "topics": ["Kinematics", "Laws of Motion", "Work Energy Power", "Rotational Motion", "Gravitation"]
+          },
+          {
+            "name": "Electromagnetism",
+            "topics": ["Electrostatics", "Current Electricity", "Magnetic Effects", "Electromagnetic Induction"]
+          },
+          {
+            "name": "Optics & Modern Physics",
+            "topics": ["Ray Optics", "Wave Optics", "Photoelectric Effect", "Atoms & Nuclei", "Semiconductors"]
+          }
+        ]
+      },
+      {
+        "name": "Chemistry",
+        "weightage": 33,
+        "chapters": [
+          {
+            "name": "Physical Chemistry",
+            "topics": ["Mole Concept", "Thermodynamics", "Chemical Equilibrium", "Electrochemistry", "Kinetics"]
+          },
+          {
+            "name": "Inorganic Chemistry",
+            "topics": ["Periodic Table", "Chemical Bonding", "s-Block", "p-Block", "d & f Block", "Coordination Compounds"]
+          },
+          {
+            "name": "Organic Chemistry",
+            "topics": ["Basic Concepts", "Hydrocarbons", "Functional Groups", "Biomolecules", "Polymers"]
+          }
+        ]
+      },
+      {
+        "name": "Mathematics",
+        "weightage": 34,
+        "chapters": [
+          {
+            "name": "Algebra",
+            "topics": ["Complex Numbers", "Quadratic Equations", "Sequences & Series", "Matrices & Determinants", "Binomial Theorem"]
+          },
+          {
+            "name": "Calculus",
+            "topics": ["Limits & Continuity", "Differentiation", "Application of Derivatives", "Integration", "Differential Equations"]
+          },
+          {
+            "name": "Coordinate Geometry & Trigonometry",
+            "topics": ["Straight Lines", "Circles", "Conic Sections", "3D Geometry", "Trigonometric Functions", "Inverse Trig"]
+          }
+        ]
+      }
+    ]
+  }
+]
