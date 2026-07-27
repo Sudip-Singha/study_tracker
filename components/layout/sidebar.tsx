@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, GraduationCap, CheckSquare, Timer, BookOpen } from "lucide-react";
+import { LayoutDashboard, GraduationCap, CheckSquare, Timer, BookOpen, CalendarClock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/timetable", label: "Timetable", icon: CalendarClock },
   { href: "/exams", label: "Exams", icon: GraduationCap },
   { href: "/tasks", label: "Tasks", icon: CheckSquare },
   { href: "/timer", label: "Timer", icon: Timer },
